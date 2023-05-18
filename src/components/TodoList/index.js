@@ -44,7 +44,6 @@ export default function TodoList() {
     dispatch(toggleTodo(checked))
   }, [checked])
 
-
   return (
     <Row style={{ height: 'calc(100% - 40px)' }}>
       <Col span={24} style={{ height: 'calc(100% - 40px)', overflowY: 'auto' }}>
