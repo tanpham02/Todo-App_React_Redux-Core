@@ -46,15 +46,17 @@ const rootReducer = (state = initState, action) => {
             }
 
         case TOGGLE_TODO:
-            state.todoLists.map((todo, index) => {
-                if (action.payload.includes(index)) {
-                    todo.completed = true
-                } else {
-                    todo.completed = false
-                }
-                return state.todoLists
+            const newTodoLists = state.todoLists.map((todo, index) => {
+                return (action.payload.length && action.payload.includes(index) ?
+                    { ...todo, completed: true } :
+                    { ...todo, completed: false })
             })
-            return state
+
+            return {
+                ...state,
+                todoLists: [...newTodoLists]
+            }
+
 
         case FILTER_PRIORITIES:
             return {

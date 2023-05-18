@@ -1,4 +1,4 @@
-# DEFIND REDUX CORE
+# DEFIND REDUX CORE (phải bắt buộc viết code với inmutation(bất biến))
 - Redux là một partten (khuôn mẫu)
 - Redux là một thư viện JS dùng để quản lí và cập nhật state trong ứng dụng Javascript
 
@@ -27,7 +27,7 @@
 # Redux makes the state predictable(dự đoán)
 # In Redux, the state is always predictable. If the same state and action are passed to a reducer, the same result is always produced because reducers are pure functions (hàm thuần khiết, không bị phụ thuộc bất kì giá trị nào nên ngoài như call api, Math.random, Date.now ...). The state is also(cũng) immutable and is never changed.
 
-# Reducer: Cũng chỉ là 1 cái hàng
+# Reducer: Cũng chỉ là 1 cái hàm (mà phải là hàm pure function - hàm thuần khiết là hàm không sử dụng bất kì giá trị nào bên ngoài như là side-effect, Math.random, Date.getDay, ...)
 
 # Action chỉ là 1 cái Object do chúng ta quyết định chứa type và payload 
 - Action: không nên dùng vì lặp lại code
@@ -39,6 +39,8 @@
 
 
 # DEFIND REDUX TOLLKIT
+=> (viết code dưới dạng mutation(đột biến), nhưng bên trong nó sử dụng library IMMER nên nó sẽ xử lí và chuyển thành dạng inmutation)
+
 - Nó cũng là thư viện Javascript và nó sẽ bọc bên ngoài Redux Core 
 - Nó sẽ chứa các package và function có sẵn để dùng khi cần thiết trong Redux không cần phải install như trong Redux Core
 
@@ -46,4 +48,6 @@
 - Việc cấu hình (config) Redux phức tạp
 - Phải cài đặt thủ công nhiều pakeages để Redux có thể hoạt động cụ thể
 - Redux yêu cầu rất nhiều boilerplate code (đoạn code lặp đi lặp lại nhiều lần)
+
+# REDUCER : trong redux-toolkit, thì nó sử dụng reduceSlice(có nghĩa là lát cắt reducer, dùng để chia nhỏ reducer ra)
 
